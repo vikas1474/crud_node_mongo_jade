@@ -1,0 +1,22 @@
+html
+    head
+        link(href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet')
+        script(src='http://code.jquery.com/jquery-1.9.1.js')
+        script(src='./test.js')
+    body
+        div.container
+            table.table-bordered.table
+                thead
+                    tr
+                        th title
+                        th description
+                tbody
+                    if data.length>0
+                        each item in data                        
+                            tr
+                                td= item.title
+                                td= item.description
+                                td
+                                    button.btn.btn-primary(onclick="updateData('"+item._id+"')") Edit
+                                td
+                                    button.btn.btn-primary(onclick="deleteData('"+item._id+"')") Delete

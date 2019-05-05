@@ -1,0 +1,16 @@
+html
+    body
+        p #{success}
+        if success
+            p successfully added
+        if errors && errors.length>0
+            each value in errors
+                p=value.msg     
+        form(action="/api/v1/todos/"+data._id+"" method="post")
+            div.form-group
+                label Title:
+                input(type="text" value=data.title name="title")
+            div.form-group
+                label Description:
+                input(type="text" value=data.description name="description")
+            button(type="submit") Submit
